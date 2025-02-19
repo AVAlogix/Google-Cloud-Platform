@@ -38,6 +38,132 @@ https://www.youtube.com/watch?v=sljBV59x_mM&list=PLYUd-PJHEzRAGR2Hb5w2qTs2lt_r-K
 4. Import cleaned data into Google Looker Studio.
 5. Build a dashboard and derive insights.
 
+## BigQuery Query Scripts
+
+```sql
+
+SELECT 
+    EmployeeID, 
+    CONCAT(FirstName, " ", LastName) AS Employee_Name,
+    Gender, 
+    BusinessTravel, 
+    Department, 
+    `DistanceFromHome KM`, 
+    Ethnicity, 
+    Education, 
+    EducationField, 
+    JobRole, 
+    MaritalStatus, 
+    StockOptionLevel, 
+    OverTime, 
+    HireDate, 
+    Attrition, 
+    YearsAtCompany, 
+    YearsInMostRecentRole, 
+    YearsSinceLastPromotion, 
+    YearsWithCurrManager,
+     CASE 
+        WHEN Age BETWEEN 19 AND 25 THEN '19-25'
+        WHEN Age BETWEEN 26 AND 32 THEN '26-32'
+        WHEN Age BETWEEN 33 AND 39 THEN '33-39'
+        WHEN Age BETWEEN 40 AND 45 THEN '40-45'
+        WHEN Age BETWEEN 46 AND 51 THEN '46-51'
+        ELSE 'Unknown'
+    END AS Age_Group,
+    CASE 
+        WHEN State = 'CA' THEN 'California'
+        WHEN State = 'IL' THEN 'Illinois'
+        WHEN State = 'NY' THEN 'New York'
+        ELSE 'Unknown'
+    END AS Full_State_Name,
+    CASE 
+        WHEN Salary BETWEEN 20387 AND 100000 THEN '20K-100K'
+        WHEN Salary BETWEEN 100001 AND 200000 THEN '100K-200K'
+        WHEN Salary BETWEEN 200001 AND 300000 THEN '200K-300K'
+        WHEN Salary BETWEEN 300001 AND 400000 THEN '300K-400K'
+        WHEN Salary BETWEEN 400001 AND 500000 THEN '400K-500K'
+        WHEN Salary BETWEEN 500001 AND 547204 THEN '500K-550K'
+        ELSE 'Unknown'
+    END AS Salary_Bin,
+FROM `golden-torch-451215-m8.HR.Employee dataset`;
+
+--Join employee and education level--
+
+CREATE TABLE `golden-torch-451215-m8.HR.Table1` AS
+SELECT 
+    EmployeeID, 
+    CONCAT(FirstName, " ", LastName) AS Employee_Name,
+    Gender, 
+    BusinessTravel, 
+    Department, 
+    `DistanceFromHome KM`, 
+    Ethnicity, 
+    EducationField, 
+    JobRole, 
+    MaritalStatus, 
+    StockOptionLevel, 
+    OverTime, 
+    HireDate, 
+    Attrition, 
+    YearsAtCompany, 
+    YearsInMostRecentRole, 
+    YearsSinceLastPromotion, 
+    YearsWithCurrManager,
+     CASE 
+        WHEN Age BETWEEN 19 AND 25 THEN '19-25'
+        WHEN Age BETWEEN 26 AND 32 THEN '26-32'
+        WHEN Age BETWEEN 33 AND 39 THEN '33-39'
+        WHEN Age BETWEEN 40 AND 45 THEN '40-45'
+        WHEN Age BETWEEN 46 AND 51 THEN '46-51'
+        ELSE 'Unknown'
+    END AS Age_Group,
+    CASE 
+        WHEN State = 'CA' THEN 'California'
+        WHEN State = 'IL' THEN 'Illinois'
+        WHEN State = 'NY' THEN 'New York'
+        ELSE 'Unknown'
+    END AS Full_State_Name,
+    CASE 
+        WHEN Salary BETWEEN 20387 AND 100000 THEN '20K-100K'
+        WHEN Salary BETWEEN 100001 AND 200000 THEN '100K-200K'
+        WHEN Salary BETWEEN 200001 AND 300000 THEN '200K-300K'
+        WHEN Salary BETWEEN 300001 AND 400000 THEN '300K-400K'
+        WHEN Salary BETWEEN 400001 AND 500000 THEN '400K-500K'
+        WHEN Salary BETWEEN 500001 AND 547204 THEN '500K-550K'
+        ELSE 'Unknown'
+    END AS Salary_Bin,
+    E1.EducationLevel
+FROM `golden-torch-451215-m8.HR.Employee dataset` E
+JOIN `golden-torch-451215-m8.HR.education level` E1
+ON E.Education = E1.EducationLevelID;
+
+--Create Table 2--
+CREATE TABLE `golden-torch-451215-m8.HR.Table2` AS
+SELECT EmployeeID, 
+PerformanceID, 
+ReviewDate, 
+E5. SatisfactionLevel AS EnvironmentSatisfaction, 
+E6. SatisfactionLevel AS JobSatisfaction, 
+E7. SatisfactionLevel AS RelationshipSatisfaction, 
+TrainingOpportunitiesWithinYear, 
+TrainingOpportunitiesTaken, 
+WorkLifeBalance, 
+E3. RatingLevel AS SelfRating, 
+E4. RatingLevel AS ManagerRating 
+FROM `golden-torch-451215-m8.HR.Performance rating` E2
+JOIN `golden-torch-451215-m8.HR.Rating Level` E3
+ON E2.SelfRating = E3.RatingID
+JOIN `golden-torch-451215-m8.HR.Rating Level` E4
+ON E2.SelfRating = E4.RatingID
+JOIN `golden-torch-451215-m8.HR.Satisfied Level` E5
+ON E2.EnvironmentSatisfaction = E5.SatisfactionID
+JOIN `golden-torch-451215-m8.HR.Satisfied Level` E6
+ON E2.JobSatisfaction = E6.SatisfactionID
+JOIN `golden-torch-451215-m8.HR.Satisfied Level` E7
+ON E2.RelationshipSatisfaction = E7.SatisfactionID;
+
+```
+
 ## Contact & Portfolio
 If you have any questions or feedback, feel free to reach out!
 
