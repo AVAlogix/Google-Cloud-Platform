@@ -162,6 +162,65 @@ ON E2.JobSatisfaction = E6.SatisfactionID
 JOIN `golden-torch-451215-m8.HR.Satisfied Level` E7
 ON E2.RelationshipSatisfaction = E7.SatisfactionID;
 
+
+-- Identifying and deleting duplicate and null values --
+-- Identifying null values in table 1
+SELECT *
+FROM `golden-torch-451215-m8.HR.Table1`
+WHERE EmployeeID IS NULL
+OR Employee_Name IS NULL
+OR Gender IS NULL 
+OR BusinessTravel IS NULL
+OR Department IS NULL
+OR `DistanceFromHome KM` IS NULL
+OR Ethnicity IS NULL
+OR EducationField IS NULL
+OR JobRole IS NULL
+OR MaritalStatus IS NULL
+OR StockOptionLevel IS NULL
+OR OverTime IS NULL
+OR HireDate IS NULL
+OR Attrition IS NULL
+OR YearsAtCompany IS NULL
+OR YearsInMostRecentRole IS NULL
+OR YearsSinceLastPromotion IS NULL
+OR YearsWithCurrManager IS NULL
+OR Age_Group IS NULL
+OR Age_Group IS NULL
+OR Full_State_Name IS NULL
+OR Salary_Bin IS NULL
+OR Salary_Bin IS NULL
+OR EducationLevel IS NULL;
+
+-- Identifying duplicate values in table 1
+SELECT EmployeeID,
+COUNT(*) AS Total
+FROM `golden-torch-451215-m8.HR.Table1`
+GROUP BY EmployeeID
+Having Count(*) >1;
+
+
+-- Identifying null values in table 2 
+SELECT *
+FROM `golden-torch-451215-m8.HR.Table2`
+WHERE EmployeeID IS NULL
+OR PerformanceID IS NULL
+OR ReviewDate IS NULL
+OR EnvironmentSatisfaction IS NULL
+OR JobSatisfaction IS NULL
+OR RelationshipSatisfaction IS NULL
+OR TrainingOpportunitiesWithinYear IS NULL
+OR TrainingOpportunitiesTaken IS NULL
+OR WorkLifeBalance IS NULL
+OR SelfRating IS NULL
+OR ManagerRating IS NULL;
+-- Identifying duplicate values in table 2 --
+SELECT PerformanceID,
+COUNT(*) AS Total
+FROM `golden-torch-451215-m8.HR.Table2`
+GROUP BY PerformanceID
+Having Count(*) >1;
+
 ```
 
 ## Contact & Portfolio
