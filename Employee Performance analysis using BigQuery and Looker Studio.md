@@ -20,7 +20,7 @@ This is an ideal resource for anyone looking to build their **data analyst portf
 - **Key Insights & Analysis**
 
 ## Dashboard Preview
-ASAP
+![Looker studio](https://github.com/user-attachments/assets/8b42d198-41a7-4089-8a03-2dd754d0feb6)
 
 ## Tools & Technologies Used
 - **Google BigQuery** for data processing
