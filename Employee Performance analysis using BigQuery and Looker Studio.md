@@ -1,4 +1,4 @@
-# Data Analyst Portfolio Project: Employee Performance Analysis
+# Employee Performance Analysis Dashboard
 
 ## Dashboard Preview
 ![Looker studio](https://github.com/user-attachments/assets/8b42d198-41a7-4089-8a03-2dd754d0feb6)
