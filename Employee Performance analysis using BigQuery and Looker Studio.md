@@ -1,5 +1,8 @@
 # Data Analyst Portfolio Project: Employee Performance Analysis
 
+## Dashboard Preview
+![Looker studio](https://github.com/user-attachments/assets/8b42d198-41a7-4089-8a03-2dd754d0feb6)
+
 ## Overview
 This is a comprehensive data analyst portfolio project focused on employee performance analysis and HR analytics. Using a dataset with five files, I demonstrate how to preprocess and clean the data in **Google BigQuery**. 
 Afterward, the cleaned data is uploaded into **Google Looker Studio** (formerly Google Data Studio) to create an insightful dashboard.
@@ -19,8 +22,6 @@ This is an ideal resource for anyone looking to build their **data analyst portf
 - **Dashboard Creation in Looker Studio**
 - **Key Insights & Analysis**
 
-## Dashboard Preview
-![Looker studio](https://github.com/user-attachments/assets/8b42d198-41a7-4089-8a03-2dd754d0feb6)
 
 ## Tools & Technologies Used
 - **Google BigQuery** for data processing
