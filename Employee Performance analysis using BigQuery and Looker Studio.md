@@ -1,7 +1,8 @@
 # Employee Performance Analysis Dashboard
 
 ## Dashboard Preview
-![Looker studio](https://github.com/user-attachments/assets/8b42d198-41a7-4089-8a03-2dd754d0feb6)
+![image](https://github.com/user-attachments/assets/5051ca4c-1001-4b07-a9e8-01c3131b3892)
+
 
 ## Overview
 This is a comprehensive data analyst portfolio project focused on employee performance analysis and HR analytics. Using a dataset with five files, I demonstrate how to preprocess and clean the data in **Google BigQuery**. 
@@ -29,15 +30,19 @@ This is an ideal resource for anyone looking to build their **data analyst portf
 - **ChatGPT** for assistance in project execution
 
 ## Video Walkthrough
-For a step-by-step walkthrough of the project, and the dataset check out the original tutorial on YouTube:
+For a step-by-step walkthrough of the project, and the dataset check out the original tutorial on YouTube: <br>
 https://www.youtube.com/watch?v=sljBV59x_mM&list=PLYUd-PJHEzRAGR2Hb5w2qTs2lt_r-K-K2&index=9
 
 ## How to Use This Project
-1. Download the dataset from Github (https://github.com/WajihaAhmed99/Data-Analyst-Portfolio-Project-Google-BigQuery-Looker-Studio-Employee-Performance-Analysis/tree/main).
+1. Download the dataset from Github <br>
+    (https://github.com/WajihaAhmed99/Data-Analyst-Portfolio-Project-Google-BigQuery-Looker-Studio-Employee-Performance-Analysis/tree/main).
 2. Upload the data to Google BigQuery.
 3. Follow the data preprocessing steps.
 4. Import cleaned data into Google Looker Studio.
 5. Build a dashboard and derive insights.
+
+## Dashboard <br>
+https://lookerstudio.google.com/s/o4H99Fh1iwA
 
 ## BigQuery Query Scripts
 
